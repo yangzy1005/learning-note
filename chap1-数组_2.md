@@ -51,7 +51,7 @@ class Solution:
             slow += 1
 ```
 ### **844::比较含退格的字符串**
-python数组类型———列表（list）:<br>
+python数组类型——列表（list）:<br>
 * `append()` : 把新元素加到list的末尾<br>
 * `insert(index, item)` : 把item添加到位于索引号index的位置<br>
 * `pop()` : 删除掉list的最后一个元素，并打印这个元素<br>
