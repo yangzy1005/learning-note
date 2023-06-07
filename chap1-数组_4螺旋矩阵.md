@@ -32,8 +32,9 @@ class Solution:
             nums[mid][mid] = count
         return nums
 ```
+### **54:medium:螺旋矩阵**
 * 先把拐角坐标写出来：
-![](/images/2.png)
+![](/images/2.jpg)
 ```
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -55,7 +56,6 @@ class Solution:
             for i in range(m - offset - 1, startx, -1):
                 nums[count] = matrix[i][starty]
                 count += 1
-            offset += 1
             startx += 1
             starty += 1
         
@@ -67,8 +67,45 @@ class Solution:
             for i in range(n - m + 1):
                 nums[count] = matrix[startx][starty + i]
                 count += 1
-        elif m == n and m % 2 == 1:
-            nums[count] = matrix[m // 2][n // 2]
 
         return nums
+```
+### **剑指Offer 29:easy:顺时针打印矩阵**
+```
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or not matrix[0]:
+            return list()
+        
+        m, n = len(matrix), len(matrix[0])
+        short = min(m, n)
+        loop = short // 2
+        startx, starty = 0, 0
+        out = [0] * n * m
+        count = 0
+        for offset in range(loop):
+            for i in range(starty, n - offset - 1):
+                out[count] = matrix[startx][i]
+                count += 1
+            for i in range(startx, m - offset - 1):
+                out[count] = matrix[i][n - offset - 1]
+                count += 1
+            for i in range(n - offset - 1, starty, -1):
+                out[count] = matrix[m - offset - 1][i]
+                count += 1
+            for i in range(m - offset - 1, startx, -1):
+                out[count] = matrix[i][starty]
+                count += 1
+            startx += 1
+            starty += 1
+        if short % 2 == 1:
+            if m == short:
+                for i in range(n - m + 1):
+                    out[count] = matrix[startx][starty + i]
+                    count += 1
+            else:
+                for i in range(m - n + 1):
+                    out[count] = matrix[startx + i][starty]
+                    count += 1
+        return out
 ```
