@@ -41,9 +41,10 @@ class Solution:
 
         return minLen if minLen != float('inf') else 0
 ```
-### **907:easy:水果成篮**
+### **904:medium:水果成篮**
 ```
+太难了再说吧
 ```
-### **76:easy:最小覆盖子串**
+### **76:hard:最小覆盖子串**
 ```
 ```
